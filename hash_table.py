@@ -51,14 +51,16 @@ def double_hash(value, nam):
             name[key1] = nam[i]
         else:
             key2 = hash_func_2(value[i])
+            i=1
             while True:
-                key = (key1 + key2) % m
+                key = (key1 + i*key2) % m
                 if num[key] == 0:
                     num[key] = value[i]
                     name[key] = nam[i]
                     break
                 else:
                     key2 += hash_func_2(value[i])
+                i=+1
     display(name,num)
 
 def display(nam,no):
